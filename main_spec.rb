@@ -15,7 +15,7 @@ describe 'Home', :type => :feature do
   
   it 'should load the homepage' do
     get '/'
-    last_response.should be_ok
+    expect(last_response).to be_ok
   end
 
   it 'should contain h1 tag with Songs By Nancy' do
