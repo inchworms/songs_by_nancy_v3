@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/main.rb'
+require File.dirname(__FILE__) + '/../main.rb'
 require 'rack/test'
 require 'capybara/rspec' #installs the rspec inside the capybara folder
 
