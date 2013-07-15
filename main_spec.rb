@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/main.rb'
 require 'rack/test'
-require 'capybara/rspec'
+require 'capybara/rspec' #installs the rspec inside the capybara folder
 
 # Capybara.app = Sinatra::Application
 
@@ -12,7 +12,7 @@ end
 
 describe 'Home', :type => :feature do
   include Rack::Test::Methods
-
+  
   it 'should load the homepage' do
     get '/'
     last_response.should be_ok
@@ -22,11 +22,14 @@ describe 'Home', :type => :feature do
     visit '/'
     page.should have_selector('h1', text: 'Songs By Nancy')
   end
-end
 
-describe 'Nav' do
   it "displays the menu" do
-    render :partial => "nav"
-    page.should have_selector('li')
+    visit '/'
+    page.should have_selector('nav li')
   end
 end
+
+#  it "should have the correct title " do
+#       response.should have_selector("title",
+#                                 :content => @base_title + " | Home")
+# end
